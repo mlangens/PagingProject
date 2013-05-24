@@ -15,5 +15,4 @@ public class FifoPager extends Pager {
   @Override
   protected void DoPageAccess(int frameID) {
   }
-
 }
