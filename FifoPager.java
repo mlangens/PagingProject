@@ -2,6 +2,10 @@ package PagingProject;
 
 public class FifoPager extends Pager {
 
+  public FifoPager(int numFrames) {
+    super(numFrames);
+  }
+
   @Override
   protected String pagerName() {
     return null;

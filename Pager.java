@@ -1,20 +1,10 @@
 package PagingProject;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 abstract class Pager {
   protected int myNumFaults;
   protected int myAccesses;
   protected Frames myFrames;
   PrintBuffer myHistory;
-
-  public Pager() {
-
-  }
 
   public Pager(int numFrames) {
     setNumFrames(numFrames);
@@ -27,16 +17,15 @@ abstract class Pager {
   protected abstract void DoPageAccess(int frameID);
 
   public int setNumFrames(int numFrames) {
-    // myFrames.setNumFrames(numFrames);
-    // return myFrames.size();
-    return 0;
+    myFrames.setNumFrames(numFrames);
+    return myFrames.getNumFrames();
   }
 
-  public int getMyNumFaults() {
+  public int getNumFaults() {
     return myNumFaults;
   }
 
-  public int getMyAccesses() {
+  public int getAccesses() {
     return myAccesses;
   }
 }
