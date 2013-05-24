@@ -12,10 +12,6 @@ abstract class Pager {
   protected Frames myFrames;
   PrintBuffer myHistory;
 
-  public static void main(String[] args) throws IOException {
-    FileHandler handler = new FileHandler();
-  }
-
   public Pager() {
 
   }
@@ -43,9 +39,4 @@ abstract class Pager {
   public int getMyAccesses() {
     return myAccesses;
   }
-}
-
-class FileHandler {
-  // http://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-in-java
-  
 }
