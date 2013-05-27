@@ -2,6 +2,7 @@ package PagingProject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
 public class PrintBuffer {
@@ -10,14 +11,14 @@ public class PrintBuffer {
   private int myReferenceString;
   private boolean myWasPageFault;
   private int COLS_PER_LINE;
-  private HashMap<Integer, Frame> statefulFrame = new HashMap<Integer, Frame>();
+  private HashMap<String, Frame> statefulFrame = new LinkedHashMap<String, Frame>();
   private String[] stringBuilder;
 
   public PrintBuffer() {
   }
 
   public void store(Frame frame, int pageID) {
-    statefulFrame.put(pageID, frame);
+    statefulFrame.put(Integer.toString(pageID), frame);
   }
 
   public void store(int pageID) {
@@ -45,7 +46,7 @@ public class PrintBuffer {
 
   private void buildPageTable() {
     String space = "   ";
-    for (Entry<Integer, Frame> entry : statefulFrame.entrySet()) {
+    for (Entry<String, Frame> entry : statefulFrame.entrySet()) {
       stringBuilder[0] += entry.getKey() + space;
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
       printPageElements(space, pageElements);
