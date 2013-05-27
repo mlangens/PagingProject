@@ -39,7 +39,7 @@ public class PrintBuffer {
     for (Entry<Integer, Frame> entry : stateFulFrame.entrySet()) {
       stringBuilder[0] += entry.getKey() + space;
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
-      for (int i = 0; i < pageElements.size() + 1; i++) {
+      for (int i = 0; i < pageElements.size(); i++) {
         String temp = stringBuilder[i];
         temp += pageElements.get(i) + space;
         stringBuilder[i] = temp;
@@ -48,7 +48,7 @@ public class PrintBuffer {
   }
 
   private void initializeStringBuilder() {
-    int size = stateFulFrame.size();
+    int size = stateFulFrame.size() + 1;
     stringBuilder = new String[size];
     for (int i = 0; i < size; i++) {
       stringBuilder[i] = "";
