@@ -26,7 +26,7 @@ public class PrintBuffer {
 
   public void print() {
     initializeStringBuilder();
-    // buildPageTable();
+    buildPageTable();
     for (int i = 0; i < stringBuilder.length; i++) {
       if (i == 1)
         System.out.println("______________________________________________");
@@ -35,21 +35,23 @@ public class PrintBuffer {
   }
 
   private void buildPageTable() {
+    String space = "   ";
     for (Entry<Integer, Frame> entry : stateFulFrame.entrySet()) {
-      // stringBuilder.add(Integer.toString(entry.getKey()));
+      stringBuilder[0] += entry.getKey() + space;
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
-      for (int i = 0; i < pageElements.size(); i++) {
-        String temp = stringBuilder[i + 1];
-        temp += pageElements.get(i) + "  ";
-        stringBuilder[i + 1] = temp;
+      for (int i = 0; i < pageElements.size() + 1; i++) {
+        String temp = stringBuilder[i];
+        temp += pageElements.get(i) + space;
+        stringBuilder[i] = temp;
       }
     }
   }
 
   private void initializeStringBuilder() {
-    for (int i = 0; i < stateFulFrame.size() + 1; i++) {
-      System.out.println(stateFulFrame.size());
-      // stringBuilder[i] = "";
+    int size = stateFulFrame.size();
+    stringBuilder = new String[size];
+    for (int i = 0; i < size; i++) {
+      stringBuilder[i] = "";
     }
   }
 
