@@ -20,4 +20,12 @@ public class Frames {
   public int getNumFrames() {
     return numFrames;
   }
+
+  public boolean lookupFrameElement(int pageID) {
+    return pageElements.contains(pageID);
+  }
+
+  public int getPageAtSlotNumber(int slotNumber) {
+    return pageElements.get(slotNumber);
+  }
 }
