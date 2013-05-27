@@ -6,9 +6,8 @@ public class Frames {
   private int numFrames;
   private ArrayList<Integer> pageElements = new ArrayList<Integer>();
 
-  public Frames(int numFrames) {
+  public Frames() {
     initializePageList(numFrames);
-    this.numFrames = numFrames;
   }
 
   private void initializePageList(int numFrames) {
@@ -27,5 +26,9 @@ public class Frames {
 
   public int getPageAtSlotNumber(int slotNumber) {
     return pageElements.get(slotNumber);
+  }
+
+  public void setNumFrames(int numFrames) {
+    this.numFrames = numFrames;
   }
 }
