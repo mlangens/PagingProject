@@ -26,12 +26,21 @@ public class PrintBuffer {
 
   public void print() {
     initializeStringBuilder();
+    String underscores = buildUnderscoreString();
     buildPageTable();
     for (int i = 0; i < stringBuilder.length; i++) {
       if (i == 1)
-        System.out.println("______________________________________________");
+        System.out.println(underscores);
       System.out.println(stringBuilder[i]);
     }
+  }
+
+  private String buildUnderscoreString() {
+    String temp = "";
+    for (int i = 0; i < stringBuilder.length; i++) {
+      temp += "____";
+    }
+    return temp;
   }
 
   private void buildPageTable() {
@@ -42,7 +51,7 @@ public class PrintBuffer {
       for (int i = 0; i < pageElements.size(); i++) {
         String temp = stringBuilder[i];
         temp += pageElements.get(i) + space;
-        stringBuilder[i] = temp;
+        stringBuilder[i + 1] = temp;
       }
     }
   }
