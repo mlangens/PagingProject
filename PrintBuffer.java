@@ -12,9 +12,6 @@ public class PrintBuffer {
   ArrayList<Integer> pageIDs = new ArrayList<Integer>();
   ArrayList<Frame> frames = new ArrayList<Frame>();
 
-  public PrintBuffer() {
-  }
-
   public void store(Frame frame, int pageID) {
     pageIDs.add(pageID);
     frames.add(frame);
@@ -22,7 +19,7 @@ public class PrintBuffer {
   }
 
   public void store(int pageID) {
-    
+    pageIDs.add(pageID);
   }
 
   public void print() {
@@ -46,7 +43,7 @@ public class PrintBuffer {
 
   private void buildPageTable() {
     String space = "   ";
-    for (int i=0; i<pageIDs.size(); i++) {
+    for (int i = 0; i < pageIDs.size(); i++) {
       stringBuilder[0] += i + space;
       printPageElements(space, frames.get(i).getPageElements());
     }
