@@ -11,7 +11,8 @@ public class PrintBuffer {
   private boolean myWasPageFault;
   private int COLS_PER_LINE;
   private HashMap<Integer, Frame> stateFulFrame = new HashMap<Integer, Frame>();
-  
+  private String[] stringBuilder;
+
   public PrintBuffer() {
   }
 
@@ -20,17 +21,25 @@ public class PrintBuffer {
   }
 
   public void store(int pageID) {
-    
+
   }
 
   public void print() {
+    initializeStringBuilder();
     for (Entry<Integer, Frame> entry : stateFulFrame.entrySet()) {
-      System.out.println(entry.getKey());
-      System.out.println("--");
+      // stringBuilder.add(Integer.toString(entry.getKey()));
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
-      for (Integer integer : pageElements) {
-        System.out.print(integer + "\n");
-      }  
+      for (int i = 0; i < pageElements.size(); i++) {
+        String temp = stringBuilder[i + 1];
+        temp += pageElements.get(i) + "  ";
+        stringBuilder[i + 1] = temp;
+      }
+    }
+  }
+
+  private void initializeStringBuilder() {
+    for (int i = 0; i < stateFulFrame.size(); i++) {
+      stringBuilder[i] = "";
     }
   }
 
