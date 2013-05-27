@@ -1,9 +1,6 @@
 package PagingProject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
 
 public class PrintBuffer {
   private int mySize;
@@ -11,18 +8,21 @@ public class PrintBuffer {
   private int myReferenceString;
   private boolean myWasPageFault;
   private int COLS_PER_LINE;
-  private HashMap<String, Frame> statefulFrame = new LinkedHashMap<String, Frame>();
   private String[] stringBuilder;
+  ArrayList<Integer> pageIDs = new ArrayList<Integer>();
+  ArrayList<Frame> frames = new ArrayList<Frame>();
 
   public PrintBuffer() {
   }
 
   public void store(Frame frame, int pageID) {
-    statefulFrame.put(Integer.toString(pageID), frame);
+    pageIDs.add(pageID);
+    frames.add(frame);
+    ArrayList<Frame> frames = new ArrayList<Frame>();
   }
 
   public void store(int pageID) {
-
+    
   }
 
   public void print() {
@@ -46,10 +46,9 @@ public class PrintBuffer {
 
   private void buildPageTable() {
     String space = "   ";
-    for (Entry<String, Frame> entry : statefulFrame.entrySet()) {
-      stringBuilder[0] += entry.getKey() + space;
-      ArrayList<Integer> pageElements = entry.getValue().getPageElements();
-      printPageElements(space, pageElements);
+    for (int i=0; i<pageIDs.size(); i++) {
+      stringBuilder[0] += i + space;
+      printPageElements(space, frames.get(i).getPageElements());
     }
   }
 
@@ -62,7 +61,7 @@ public class PrintBuffer {
   }
 
   private void initializeStringBuilder() {
-    int size = statefulFrame.size() + 1;
+    int size = pageIDs.size() + 1;
     stringBuilder = new String[size];
     for (int i = 0; i < size; i++) {
       stringBuilder[i] = "";
