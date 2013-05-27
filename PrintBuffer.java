@@ -26,6 +26,15 @@ public class PrintBuffer {
 
   public void print() {
     initializeStringBuilder();
+    // buildPageTable();
+    for (int i = 0; i < stringBuilder.length; i++) {
+      if (i == 1)
+        System.out.println("______________________________________________");
+      System.out.println(stringBuilder[i]);
+    }
+  }
+
+  private void buildPageTable() {
     for (Entry<Integer, Frame> entry : stateFulFrame.entrySet()) {
       // stringBuilder.add(Integer.toString(entry.getKey()));
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
@@ -38,8 +47,9 @@ public class PrintBuffer {
   }
 
   private void initializeStringBuilder() {
-    for (int i = 0; i < stateFulFrame.size(); i++) {
-      stringBuilder[i] = "";
+    for (int i = 0; i < stateFulFrame.size() + 1; i++) {
+      System.out.println(stateFulFrame.size());
+      // stringBuilder[i] = "";
     }
   }
 
