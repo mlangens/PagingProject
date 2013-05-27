@@ -33,7 +33,6 @@ class FileHandler {
 
   public void processFile() throws IOException {
     boolean isFrameCount = true;
-    // these frames are OT3
     numFrameList.clear();
     pageSeqList.clear();
     ArrayList<Integer> sequence = new ArrayList<Integer>();

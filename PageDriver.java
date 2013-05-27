@@ -11,7 +11,7 @@ class PageDriver {
       ArrayList<Integer> pageSeq = handler.getPageSeq(i);
       System.out.println(handler.getNumFrames(i) + ": ");
       for (int j = 0; j < pageSeq.size(); j++) {
-        System.out.print(pageSeq.get(j)+ " ");
+        System.out.print(pageSeq.get(j) + " ");
       }
       System.out.println();
     }
