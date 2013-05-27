@@ -2,7 +2,7 @@ package PagingProject;
 
 public class PrintBuffer {
   private int mySize;
-  private Frames myFrameHistory;
+  private Frame myFrameHistory;
   private int myReferenceString;
   private boolean myWasPageFault;
   private int COLS_PER_LINE;
@@ -10,7 +10,7 @@ public class PrintBuffer {
   public PrintBuffer() {
   }
 
-  public void store(Frames frames, int pageID) {
+  public void store(Frame frames, int pageID) {
   }
 
   public void store(int pageID) {

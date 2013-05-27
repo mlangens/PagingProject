@@ -3,7 +3,7 @@ package PagingProject;
 abstract class Pager {
   protected int myNumFaults;
   protected int myAccesses;
-  protected Frames myFrames;
+  protected Frame myFrames;
   PrintBuffer myHistory;
 
   public Pager(int numFrames) {
