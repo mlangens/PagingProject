@@ -29,7 +29,7 @@ public class PrintBuffer {
       System.out.println("--");
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
       for (Integer integer : pageElements) {
-        System.out.println(integer + "\n");
+        System.out.print(integer + "\n");
       }  
     }
   }
