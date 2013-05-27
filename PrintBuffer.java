@@ -10,14 +10,14 @@ public class PrintBuffer {
   private int myReferenceString;
   private boolean myWasPageFault;
   private int COLS_PER_LINE;
-  private HashMap<Integer, Frame> stateFulFrame = new HashMap<Integer, Frame>();
+  private HashMap<Integer, Frame> statefulFrame = new HashMap<Integer, Frame>();
   private String[] stringBuilder;
 
   public PrintBuffer() {
   }
 
   public void store(Frame frame, int pageID) {
-    stateFulFrame.put(pageID, frame);
+    statefulFrame.put(pageID, frame);
   }
 
   public void store(int pageID) {
@@ -45,7 +45,7 @@ public class PrintBuffer {
 
   private void buildPageTable() {
     String space = "   ";
-    for (Entry<Integer, Frame> entry : stateFulFrame.entrySet()) {
+    for (Entry<Integer, Frame> entry : statefulFrame.entrySet()) {
       stringBuilder[0] += entry.getKey() + space;
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
       printPageElements(space, pageElements);
@@ -61,7 +61,7 @@ public class PrintBuffer {
   }
 
   private void initializeStringBuilder() {
-    int size = stateFulFrame.size() + 1;
+    int size = statefulFrame.size() + 1;
     stringBuilder = new String[size];
     for (int i = 0; i < size; i++) {
       stringBuilder[i] = "";
