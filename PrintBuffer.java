@@ -49,7 +49,7 @@ public class PrintBuffer {
       stringBuilder[0] += entry.getKey() + space;
       ArrayList<Integer> pageElements = entry.getValue().getPageElements();
       for (int i = 0; i < pageElements.size(); i++) {
-        String temp = stringBuilder[i];
+        String temp = stringBuilder[i + 1];
         temp += pageElements.get(i) + space;
         stringBuilder[i + 1] = temp;
       }
