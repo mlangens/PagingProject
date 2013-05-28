@@ -12,9 +12,9 @@ abstract class Pager {
 
   protected abstract String pagerName();
 
-  protected abstract int DoPageFault();
+  protected abstract int doPageFault();
 
-  protected abstract void DoPageAccess(int frameID);
+  protected abstract void doPageAccess(int frameID);
 
   public int setNumFrames(int numFrames) {
     myFrames.setNumFrames(numFrames);

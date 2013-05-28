@@ -18,10 +18,9 @@ class PageDriver {
    
     PrintBuffer buffer = new PrintBuffer();
     for (int i = 0; i < 10; i++) {
-      Frame temp = new Frame();
-      temp.initializePageList(4);
+      Frame temp = new Frame(4);
       buffer.store(temp, i);
     }
     buffer.print();
   }
-}
+} 

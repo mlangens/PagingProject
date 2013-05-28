@@ -12,12 +12,12 @@ public class LruPager extends Pager {
   }
 
   @Override
-  protected int DoPageFault() {
+  protected int doPageFault() {
     return 0;
   }
 
   @Override
-  protected void DoPageAccess(int frameID) {
+  protected void doPageAccess(int frameID) {
   }
 
 }
