@@ -23,45 +23,23 @@ public class PrintBuffer {
   }
 
   public void print() {
-    initializeStringBuilder();
-    String underscores = buildUnderscoreString();
-    buildPageTable();
-    for (int i = 0; i < stringBuilder.length; i++) {
-      if (i == 1)
-        System.out.println(underscores);
-      System.out.println(stringBuilder[i]);
-    }
-  }
-
-  private String buildUnderscoreString() {
-    String temp = "";
-    for (int i = 0; i < stringBuilder.length; i++) {
-      temp += "____";
-    }
-    return temp;
-  }
-
-  private void buildPageTable() {
-    String space = "   ";
     for (int i = 0; i < pageIDs.size(); i++) {
-      stringBuilder[0] += i + space;
-      printPageElements(space, frames.get(i).getPageElements());
+      System.out.print(" " + pageIDs.get(i) + " ");
     }
-  }
-
-  private void printPageElements(String space, ArrayList<Integer> pageElements) {
-    for (int i = 0; i < pageElements.size(); i++) {
-      String temp = stringBuilder[i + 1];
-      temp += pageElements.get(i) + space;
-      stringBuilder[i + 1] = temp;
+    System.out.print("\n");
+    for (int i = 0; i < pageIDs.size(); i++) {
+      System.out.print("___");
     }
-  }
-
-  private void initializeStringBuilder() {
-    int size = pageIDs.size() + 1;
-    stringBuilder = new String[size];
-    for (int i = 0; i < size; i++) {
-      stringBuilder[i] = "";
+    System.out.print("\n");
+    for (int i = 0; i < frames.size(); i++) {
+      for (int j = 0; j < frames.size(); ++j) {
+        if (frames.get(j) == null) {
+          System.out.print("   ");
+        } else {
+          System.out.print(" " + frames.get(j).getPageAtSlotNumber(i) + " ");
+        }
+      }
+      System.out.print("\n");
     }
   }
 
