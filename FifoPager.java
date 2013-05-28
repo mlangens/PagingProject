@@ -11,6 +11,8 @@ public class FifoPager extends Pager {
   public FifoPager(int numFrames) {
     super(numFrames);
     fifo = new ArrayBlockingQueue<Integer>(numFrames);
+    for(int i=0; i<numFrames; i++)
+      fifo.add(i);
   }
 
   @Override
