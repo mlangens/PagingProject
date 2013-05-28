@@ -5,18 +5,17 @@ import java.util.ArrayList;
 
 class PageDriver {
   public static void main(String[] args) throws IOException {
-    FileHandler handler = new FileHandler(args[0]);
-    handler.processFile();
-    for (int i = 0; i < handler.numberOfElements(); i++) {
-      ArrayList<Integer> pageSeq = handler.getPageSeq(i);
-      System.out.println(handler.getNumFrames(i) + ": ");
+    FileHandler fileHandler = new FileHandler(args[0]);
+    fileHandler.processFile();
+    for (int i = 0; i < fileHandler.numberOfElements(); i++) {
+      ArrayList<Integer> pageSeq = fileHandler.getPageSeq(i);
+      System.out.println(fileHandler.getNumFrames(i) + ": ");
       for (int j = 0; j < pageSeq.size(); j++) {
         System.out.print(pageSeq.get(j) + " ");
       }
       System.out.println();
     }
    
-    //
     PrintBuffer buffer = new PrintBuffer();
     for (int i = 0; i < 10; i++) {
       Frame temp = new Frame();

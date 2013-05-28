@@ -6,8 +6,9 @@ public class Frame {
   private int numFrames;
   private ArrayList<Integer> pageElements = new ArrayList<Integer>();
 
-  public Frame() {
+  public Frame(int numFrames) {
     initializePageList(numFrames);
+    this.numFrames = numFrames;
   }
 
   public void initializePageList(int numFrames) {
