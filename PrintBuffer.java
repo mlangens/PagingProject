@@ -45,7 +45,7 @@ public class PrintBuffer {
   }
 
   private void printFramesAtIndex(int i) {
-    for (int j = 0; j < frames.size(); ++j) {
+    for (int j = 0; j < frames.size(); j++) {
       if (frames.get(j) == null) {
         System.out.print("   ");
       } else {
