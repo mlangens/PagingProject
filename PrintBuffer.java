@@ -23,24 +23,36 @@ public class PrintBuffer {
   }
 
   public void print() {
+    printPageIDs();
+    printFittedUnderscores();
+    for (int i = 0; i < frames.size(); i++) {
+      printFramesAtIndex(i);
+    }
+  }
+
+  private void printPageIDs() {
     for (int i = 0; i < pageIDs.size(); i++) {
       System.out.print(" " + pageIDs.get(i) + " ");
     }
     System.out.print("\n");
+  }
+
+  private void printFittedUnderscores() {
     for (int i = 0; i < pageIDs.size(); i++) {
       System.out.print("___");
     }
     System.out.print("\n");
-    for (int i = 0; i < frames.size(); i++) {
-      for (int j = 0; j < frames.size(); ++j) {
-        if (frames.get(j) == null) {
-          System.out.print("   ");
-        } else {
-          System.out.print(" " + frames.get(j).getPageAtSlotNumber(i) + " ");
-        }
+  }
+
+  private void printFramesAtIndex(int i) {
+    for (int j = 0; j < frames.size(); ++j) {
+      if (frames.get(j) == null) {
+        System.out.print("   ");
+      } else {
+        System.out.print(" " + frames.get(j).getPageAtSlotNumber(i) + " ");
       }
-      System.out.print("\n");
     }
+    System.out.print("\n");
   }
 
   public void printLine(int start, int end) {
