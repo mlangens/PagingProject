@@ -20,6 +20,7 @@ public class PrintBuffer {
 
   public void store(int pageID) {
     pageIDs.add(pageID);
+    frames.add(null);
   }
 
   public void print() {
