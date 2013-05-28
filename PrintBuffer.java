@@ -15,7 +15,6 @@ public class PrintBuffer {
   public void store(Frame frame, int pageID) {
     pageIDs.add(pageID);
     frames.add(frame);
-    ArrayList<Frame> frames = new ArrayList<Frame>();
   }
 
   public void store(int pageID) {
