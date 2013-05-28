@@ -13,12 +13,6 @@ public class FifoPager extends Pager {
     fifo = new ArrayBlockingQueue<Integer>(numFrames);
   }
 
-  private Queue<Integer> fifoQueue = new Queue<Integer>() {
-    
-  public FifoPager(int numFrames) {
-    super(numFrames);
-  }
-
   @Override
   protected String pagerName() {
     return null;
